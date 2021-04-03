@@ -18,7 +18,7 @@ func dicesProbability(n int) []float64 {
 	for i := 1; i <= 6; i++ {
 		dp[cur][i] = 1
 	}
-	sum := 6
+	sum := 6 //共有多少种组合
 	for i := 2; i <= n; i++ {
 		//i ~ 6 * i
 		tmp := last
@@ -36,7 +36,6 @@ func dicesProbability(n int) []float64 {
 				}
 			}
 		}
-
 	}
 	h := float64(6*n - n + 1)
 	r := make([]float64, int(h))

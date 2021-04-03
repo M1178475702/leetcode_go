@@ -5,6 +5,7 @@ import "leetcode_go"
 /**
   341. 扁平化嵌套列表迭代器 中等
   将整个嵌套列表视作树，使用栈，构造中序迭代器
+  迭代器模板：保存当前状态（当前位置（iter），下一步(nidx)），以及栈（如果需要回退的话）
 */
 
 type NestedInteger struct{}
@@ -104,7 +105,6 @@ func (this *NestedIterator) findNext() {
 					return
 				}
 			}
-
 		} else {
 			this.iter = this.s.Pop().(*NestedIntWithIndex)
 			//遍历，检查是否是leaf
@@ -113,7 +113,6 @@ func (this *NestedIterator) findNext() {
 				//二叉树在这里直接进入右子树，且由于没有其他子树可遍历，则无需入栈
 				this.s.Push(NewNestedIntWithIndex(this.iter.ni, this.iter.nidx+1))
 				this.iter = NewNestedIntWithIndex(this.iter.ni.GetList()[this.iter.nidx], 0)
-
 			} else {
 				tmp := this.iter
 				this.iter = nil

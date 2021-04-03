@@ -1,6 +1,5 @@
 package leetcode_go
 
-
 /**
 剑指 Offer 57 - II. 和为s的连续正数序列
 难度：简单
@@ -15,7 +14,7 @@ func findContinuousSequence(target int) [][]int {
 	for i := 1; i <= n; i++ {
 		sum := 0
 		var r []int
-		for j := i; j <= n; j++{
+		for j := i; j <= n; j++ {
 			sum += j
 			if sum == target {
 				r = append(r, j)
@@ -29,6 +28,7 @@ func findContinuousSequence(target int) [][]int {
 	}
 	return res
 }
+
 //0ms
 func findContinuousSequence1(target int) [][]int {
 	n := (target + 1) / 2
@@ -49,7 +49,7 @@ func findContinuousSequence1(target int) [][]int {
 					r = r[1:]
 					j++
 					break
-				} else if sum < target{
+				} else if sum < target {
 					break
 				}
 			}

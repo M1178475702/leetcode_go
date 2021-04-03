@@ -21,7 +21,7 @@ func generateParenthesis(n int) []string {
 	return r
 }
 
-//if there is MODIFiCATION in func block, the ptr is needed
+//if there is MODIFiCATION on slice in func block, the ptr is needed
 func gpdfs(r *[]string, cur string, left bool, lc, rc, max int) {
 	if left {
 		cur += "("
