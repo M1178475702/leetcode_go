@@ -67,6 +67,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 //将两个链表分别分成两段：Aa和Ba，其中a表示公共段
 //两个指针分别遍历AaBa和BaAa，可以看到AaB和BaA是同长，因而二者不然同时走到第二个a
 func getIntersectionNode1(headA, headB *ListNode) *ListNode {
+
 	iterA, iterB := headA, headB
 	var aInB, bInA bool
 	for iterA != nil && iterB != nil {

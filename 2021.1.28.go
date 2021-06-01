@@ -11,6 +11,7 @@ package leetcode_go
  * 交换下项：pre[l] = sum[r] - k，即对于pre[r]，以r结尾的优美子数组的数量为奇数数量为为pre[l]的频次
  * 因此，ans = preCnt[sum[r] - k]。此外，实现中无需维护pre[]，只需维护odd变量即可。preCnt[0] = 1.
  *
+ * 前缀和特征：统计前缀数组某种特征的个数，和等信息
  */
 
 func numberOfSubarrays(nums []int, k int) int {

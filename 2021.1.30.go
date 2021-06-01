@@ -80,6 +80,7 @@ func threeSum(nums []int) [][]int {
 	for i := 0; i < len(nums) - 2; i++ {
 		//开始，使用二分查找c的位置，及0-a-b；此时nums[k]要么等于c，要么小于c
 		//之后的c的位置不再用二分查找，改用缩小的范围的双指针查找（也可以直接用缩小的范围的二分，不用双指针
+		//先以Nums[i+1]为b，其为最小b，然后确定最大c位置，然后二分
 		k := BinarySearchRight(nums, 0 - nums[i] - nums[i+1], nil)
 		for j := i + 1; j < len(nums) && j < k; j++ {
 			for k > j {

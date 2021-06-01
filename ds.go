@@ -437,6 +437,24 @@ func CreateBiTree(nums []int, i int) *TreeNode {
 	return node
 }
 
+func FindTreeNode(node *TreeNode, val int) *TreeNode {
+	if node == nil {
+		return nil
+	}
+	if node.Val == val {
+		return node
+	}
+	l := FindTreeNode(node.Left, val)
+	if l != nil {
+		return l
+	}
+	r := FindTreeNode(node.Right, val)
+	if r != nil {
+		return r
+	}
+	return nil
+}
+
 //四舍五入
 func Round(f float64) float64 {
 	return math.Floor(f + 0.5)
@@ -601,8 +619,10 @@ func (q *CircularQueue) Push(e interface{}) {
 		}
 		newc := make([]interface{}, newsize)
 		n := copy(newc, q.c[q.head:])
-		copy(newc[:n], q.c[:q.head])
+		copy(newc[n:], q.c[:q.head])
 		q.c = newc
+		q.head = 0
+		q.tail = size
 	}
 	q.tail = (q.tail + 1) % len(q.c)
 	q.c[q.tail] = e
